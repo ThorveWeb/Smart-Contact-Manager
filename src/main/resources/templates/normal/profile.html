@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})"
+>
+<head>
+	<meta charset="UTF-8" />
+	<title>User Dashboard</title>
+</head>
+<body>
+	
+	<section>
+		<div class="text-center container">
+			<img src="" th:src="@{'/img/'+${user.imageUrl}}" style="width: 30%;height: 30%;object-fit: cover;border-radius: 50%;" alt="error" />
+							
+			<h1 class=" text-uppercase font-weight-bolder font-italic display-1" th:text="${user.name}"></h1>
+			<div class="row">
+				<div class="col-md-12">
+						<div class=" table-responsive-md">
+                    <table class="table  border-primary table-striped table-bordered table-hover table-light ">
+                        <thead class="bg-danger text-light ">
+                            <tr>
+                                <th scope="col">#USERID</th>
+                                <th scope="col">SCRUSER <span th:text="${user.Id}"></span></th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+								<th scope="row" >Email</th>
+                                <td scope="row" > <span th:text="${user.email}"></span></td>
+                            </tr>
+                            
+                             <tr >
+								<th scope="row" >Role</th>
+                                <td scope="row" > <span th:text="${user.role}"></span></td>
+                            </tr>
+                            
+                             <tr >
+								<th scope="row" >Account active</th>
+                                <td > <span th:text="${user.enabled}"></span></td>
+                            </tr>
+                            
+                             <tr >
+								<th scope="row" >About Your Self</th>
+                                <td scope="row" > <span th:text="${user.about}"></span></td>
+                            </tr>
+                               
+                        </tbody>
+                    </table>
+                </div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		//active class add andremover
+		$(document).ready(()=>{
+			$(".item").removeClass("active")
+		$("#profile-link").addClass("active")
+		})
+		
+	</script>
+	</section>
+	
+	
+	
+</body>
+</html>

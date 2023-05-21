@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+	<title th:text="${title}">Base html</title>
+</head>
+
+<body class="container-fluid">
+
+
+	<video th:src="@{/img/bg.mp4}" class="vid-bg" autoplay loop muted></video>
+
+
+	<!-- navbar -->
+
+	<nav class="navbar navbar-expand-sm row navbar-dark conatiner " style="background-color: transparent;">
+
+		<a class="navbar-brand display-1 col-sm-3  font-weight-bold text-uppercase text-center  " th:href="@{/}">
+			<img th:src="@{/img/logog.jpg}" style="width:30%;height: 30%; border-radius: 50%;" alt="" />
+			<br /> smart contact manager
+		</a>
+
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse col-sm-5 offset-sm-4 " id="navbarSupportedContent">
+
+
+				<ul class="navbar-nav ml-auto text-uppercase ">
+
+					<li class="nav-item ">
+						<a th:href="@{/}" style="font-size: 25px;" class="nav-link text-light font-weight-bolder  font-weight-bold text-uppercase text-center " href="#">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+
+					<li class="nav-item"><a style="font-size: 25px;" class="nav-link text-light font-weight-bolder mx-4" th:href="@{/about/}">About</a>
+					</li>
+
+
+
+					<li class="nav-item"><a style="font-size: 25px;" class="nav-link text-light font-weight-bolder " th:href="@{/signin/}"
+							tabindex="-1" aria-disabled="true">Login</a></li>
+
+
+
+					<li class="nav-item"><a style="font-size: 25px;" class="nav-link text-light font-weight-bolder mx-4" th:href="@{/signup/}" href="#"
+							tabindex="-1" aria-disabled="true">Signup</a></li>
+
+
+
+				</ul>
+
+
+
+		</div>
+	</nav>
+	<!-- 
+	END navbar -->
+
+
+
+	<div th:replace="${content}"></div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+
+	<script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>
