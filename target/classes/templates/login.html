@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+
+<body>
+	<section>
+	
+    <div class = "container mt-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+            <div class="login-card-light p-3 shadow-lg rounded" style="
+background: linear-gradient(90deg, rgba(131,58,180,0.4) 0%, rgba(253,29,29,0.4) 50%, rgba(252,176,69,0.4) 100%);">
+                <div class="pt-3">
+                    <h2 class="text-danger display-4  font-italic text-center font-weight-bold">Sign In </h2>
+                </div>
+                
+                
+            <div th:if="${param.error}" class="mt-3 alert alert-danger text-center">
+					Invalid username and password
+				</div>
+				<div th:if="${param.logout}" class="mt-3 alert alert-success text-center">
+					You have been Logged out....!!
+				</div>
+				
+					<div th:if="${param.change}" class="mt-3 alert alert-danger text-center">
+					<p th:text="${param.change}"></p>
+				</div>
+				
+				
+				
+                <form class="mt-5" action="#" th:action="@{/dologin}" method="post">
+                    <div class="form-group">
+                        <input type="email" 
+                            class="form-control form-control-sm" 
+                            name="username"
+                            placeholder="Email Id">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" 
+                            class="form-control form-control-sm" 
+                            name="password"
+                            placeholder="Password">
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberCheckBox">
+                        <label class="form-check-label text-dark" for="rememberCheckBox">Remember me?</label>
+                    </div>
+
+                    <div class="mt-5">
+                        <button class="btn btn-sm btn-danger col">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-2" >
+                        <a href="#" th:href="@{/forgot/}">Forgot Password?</a>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <p class="text-center">
+                            Don't have an account?
+                            <a th:href="@{/signup}">Click here to register</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+	</div>
+</div>
+	</section>
+</body>
+</html>

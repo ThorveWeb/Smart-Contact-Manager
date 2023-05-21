@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>User Dashboard</title>
+</head>
+
+<body>
+
+	<section>
+		<div class="text-center container">
+			<img src="" th:src="@{'/img/'+${user.imageUrl}}"
+				style="width: 30%;height: 30%;object-fit: cover;border-radius: 50%;" alt="error" />
+
+			<h1 class=" text-uppercase font-weight-bold">Welcome to <span th:text="${user.name}"> Your Private Dashboard
+					Page</h1>
+			<span class="text-info font-weight-bold">Start Adding our Contact on cloud.....</span><br />
+
+			<a href="#" th:href="@{/user/add-contact}" class="btn btn-outline-primary mt-2 btn-block">ADD NEW
+				CONTACT</a>
+
+			<hr />
+			
+			<br />
+				<h1>Donate Us</h1>
+				
+						<input type="text" class="form-control my-2 " id="payment_field" placeholder="Enter Donate Here" >
+					
+		<div class="container text-center">
+
+			<button class="btn btn-outline-info" onclick="paymentStart()">Checkout</button>
+		</div>
+		
+	</section>
+
+	<script>
+		//active class add andremover
+
+		$(document).ready(() => {
+			$(".item").removeClass("active")
+			$("#home-link").addClass("active")
+		})
+	</script>
+</body>
+
+</html>

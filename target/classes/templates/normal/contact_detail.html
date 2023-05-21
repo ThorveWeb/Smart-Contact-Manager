@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>User Dashboard</title>
+</head>
+
+<body>
+
+	<section>
+		<div class="container text-center py-3" style="background: whitesmoke;" th:if="${contact}">
+			<div class="row">
+				<div class="col-md-12 py-3">
+					<img src="" style="width: 200px;height: 200px; border-radius: 50%;"
+						th:src="@{'/img/'+${contact.image}}" alt="Error" />
+					<h2 th:text="${contact.name}">{ <span th:text="${contact.secondName}"></span>}</h2>
+					<div class=" table-responsive-md">
+
+						<table class="table  table-sm table-hover table-light ">
+							<tbody>
+								<tr>
+									<th scope="col">#ID</th>
+									<td scope="col"> <span th:text="${contact.cId}"></span></td>
+
+								</tr>
+								<tr>
+									<th scope="col">Email</th>
+									<td scope="col"> <span th:text="${contact.email}"></span></td>
+
+								</tr>
+
+
+								<tr>
+									<th scope="col">Phone</th>
+									<td scope="col"> <span th:text="${contact.phone}"></span></td>
+
+								</tr>
+
+								<tr>
+									<th scope="col">Working</th>
+									<td scope="col"> <span th:text="${contact.work}"></span></td>
+
+								</tr>
+
+							</tbody>
+						</table>
+						<div>
+							<th:block th:utext="${contact.description}"></th:block>
+						</div>
+					</div>
+				</div>
+				<div class="container text-center">
+					<a class="btn btn-danger btn-sm btn-block" th:onclick="|deleteContact(${contact.cId})|">DELETE</a>
+
+					<form method="post" th:action="@{'/user/update-contact/'+${contact.cId}}" class="my-2">
+						<button type="submit" class="btn btn-success btn-sm">UPDATE</button>
+					</form>
+				</div>
+			</div>
+
+
+
+			<h1 class="alert alert-danger text-dark mx-3" th:unless="${contact}">You Don't Have Permission to See This
+				Contact.....!!!</h1>
+
+		</div>
+
+	</section>
+</body>
+
+</html>
